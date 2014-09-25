@@ -19,6 +19,8 @@ dependencies {
     testCompile 'org.hamcrest:hamcrest-library:1.1'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
     testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.5.Final'
+
+    // all*.exclude module: 'jsr250-api'
 }
 
 [compileJava, compileTestJava]*.options*.encoding = defaultEncoding
