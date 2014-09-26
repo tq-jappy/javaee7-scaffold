@@ -1,7 +1,27 @@
 javaee7-sandbox
 ===============
 
-EclipseとJava EE 7を使って色々試す。
+小さく始められるJava EE 7のScaffold。
+
+- IDE: Eclipse
+- ビルド: Gradle
+- Application Server: Wildfly
+- 結合テスト: Arquillian
+
+## 準備
+
+## 管理用ユーザの作成
+
+```
+# cd {wildfly_home}
+# ./add-user -u admin -p password -sc {wildfly_home}/standalone/configuration
+```
+
+## その他ポイント
+
+- JBoss Toolsを使う場合、サーバの設定で適用する設定ファイルは standalone.xml ではなく、standalone-full.xml とする(Full ProfileでないとJMS等が使えない)。
+ - Eclipseからサーバを起動する場合はサーバの設定を確認。
+ - デプロイスクリプトやarquillian.xmlも影響。
 
 ## ビルド
 
@@ -9,17 +29,40 @@ EclipseとJava EE 7を使って色々試す。
 ./gradlew war
 ```
 
-## Eclipseの設定
-
-ポイントのみ
-
-- JBoss Toolsを使う場合、サーバの設定で適用する設定ファイルは standalone.xml ではなく、standalone-full.xml とする(Full ProfileでないとJMS等が使えない)。
-
 ## デプロイ
 
-ビルドしてできた build/libs/*.war を ${WILDFLY_ROOT}/standalone/deployments にコピー（TODO: ビルドタスク化）
+[gradle-cargo-plugin](https://github.com/bmuschko/gradle-cargo-plugin)を利用。
 
-その後、Wildflyを起動（Eclipseからでもよいし、コマンド起動でも可）
+### ローカル
+
+```
+./gradlew cargoRunLocal
+```
+
+または
+
+```
+./gradlew cargoStartLocal
+```
+
+``cargoRunLocal`` の場合は、 ``Ctrl+c`` で停止する。
+``cargoStartLocal`` の場合は ``cargoStopLocal`` タスクで停止する。
+
+ホットデプロイは不可なので、アプリを更新したら、再起動が必要。
+
+### リモート（ホットデプロイ可）
+
+事前にコンテナ(Wildfly)を起動させておいて、
+
+```
+./gradlew cargoDeployRemote
+```
+
+と
+
+```
+./gradlew cargoRedeployRemote
+```
 
 ## 動作確認
 
