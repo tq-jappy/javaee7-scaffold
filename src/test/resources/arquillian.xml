@@ -21,10 +21,10 @@
 
     <container qualifier="arquillian-wildfly8-managed" default="true">
         <configuration>
-            <!-- 
-            <property name="jbossHome">${JBOSS_HOME}</property>
-            <property name="modulePath">${JBOSS_HOME}/modules</property>
-            <property name="javaHome">${JAVA_HOME}</property>
+            <!-- 環境変数 JBOSS_HOME/JAVA_HOME を設定するか、プロパティ jboss.home/java.home を設定する -->
+            <!--
+            <property name="jbossHome">/path/to/wildfly</property>
+            <property name="javaHome">/path/to/jdk8</property>
             -->
             <property name="serverConfig">standalone-full.xml</property>
         </configuration>

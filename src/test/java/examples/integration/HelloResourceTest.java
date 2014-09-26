@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import examples.HelloEjb;
-import examples.HelloResource;
 
 /**
  * @author t_endo
@@ -27,7 +26,7 @@ public class HelloResourceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class).addClass(
-                HelloResource.class);
+                HelloEjb.class);
         return jar;
     }
 
