@@ -11,6 +11,11 @@ javaee7-sandbox
 
 ## 準備
 
+### 環境変数
+
+- ``JAVA_HOME``
+- ``JBOSS_HOME``
+
 ### 管理用ユーザの作成
 
 ```
