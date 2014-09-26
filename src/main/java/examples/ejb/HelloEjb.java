@@ -1,4 +1,4 @@
-package examples;
+package examples.ejb;
 
 import javax.ejb.Stateless;
 

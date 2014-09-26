@@ -7,23 +7,26 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
+import examples.ejb.HelloEjb;
 import examples.jms.Sender;
 
 /**
  * 
  * @author t_endo
  */
-@Path("/misc")
+@Path("/examples")
 @Consumes(MediaType.APPLICATION_JSON)
-public class AnotherResource {
+public class ExampleResource {
+
+    @EJB
+    private HelloEjb hello;
 
     @EJB
     private Sender sender;
 
     @GET
-    @Path("{name}")
-    public String sendMessage(@PathParam("name") String name) {
-        sender.sendMessage(name);
-        return "OK";
+    @Path("/hello/{name}")
+    public String greet(@PathParam("name") String name) {
+        return hello.greet(name);
     }
 }
