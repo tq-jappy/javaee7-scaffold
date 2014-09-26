@@ -9,7 +9,10 @@ version = '0.0.1'
 def defaultEncoding = 'UTF-8'
 def jdkVersion = '1.8'
 
-repositories { mavenCentral() }
+repositories { 
+    mavenCentral()
+    maven { url "https://repository.jboss.org/nexus/content/groups/public/" }
+} 
 
 dependencies {
     providedCompile 'org.jboss.spec:jboss-javaee-all-7.0:1.0.1.Final'
@@ -19,6 +22,7 @@ dependencies {
     testCompile 'org.hamcrest:hamcrest-library:1.1'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
     testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.5.Final'
+	testCompile 'org.wildfly:wildfly-arquillian-container-managed:8.1.0.Final'
 
     // all*.exclude module: 'jsr250-api'
 }
