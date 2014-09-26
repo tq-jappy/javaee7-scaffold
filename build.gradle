@@ -53,7 +53,7 @@ cargo {
 
     deployable {
         file = file('build/libs/javaee7-sandbox-0.0.1.war')
-        // context = 'app'
+        context = 'javaee7-sandbox'
     }
 
     remote {
