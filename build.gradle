@@ -56,6 +56,12 @@ cargo {
         // context = 'app'
     }
 
+    remote {
+        hostname = 'localhost'
+        username = 'admin'
+        password = 'password'
+    }
+
     local {
         homeDir = file('/path/to/wildfly')
         containerProperties {
