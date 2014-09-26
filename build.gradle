@@ -3,27 +3,23 @@ apply plugin: 'groovy'
 apply plugin: 'war'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.8
-version = '0.0.1'
-
 def defaultEncoding = 'UTF-8'
 def jdkVersion = '1.8'
 def wildflyVersion = '8.1.0.Final'
 def cargoVersion = '1.4.10'
 
-repositories { 
+sourceCompatibility = jdkVersion
+version = '0.0.1'
+
+repositories {
     mavenCentral()
     maven { url "https://repository.jboss.org/nexus/content/groups/public/" }
-} 
+}
 
 buildscript {
-    repositories {
-        jcenter()
-    }
+    repositories { jcenter() }
 
-    dependencies {
-        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.5.1'
-    }
+    dependencies { classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.5.1' }
 }
 
 apply plugin: 'cargo'
@@ -52,8 +48,8 @@ cargo {
     // port = 8080
 
     deployable {
-        file = file('build/libs/javaee7-sandbox-0.0.1.war')
-        context = 'javaee7-sandbox'
+        file = file('build/libs/javaee7-scaffold-0.0.1.war')
+        context = 'javaee7-scaffold'
     }
 
     remote {
@@ -63,11 +59,14 @@ cargo {
     }
 
     local {
-        homeDir = file('/path/to/wildfly')
-        containerProperties {
-            property 'cargo.jboss.configuration', 'standalone-full'
-        }
+        homeDir = file("$System.env.JBOSS_HOME")
+        containerProperties { property 'cargo.jboss.configuration', 'standalone-full' }
     }
 }
 
-cargoRunLocal.dependsOn assemble
+[
+    cargoRunLocal,
+    cargoStartLocal,
+    cargoDeployRemote,
+    cargoRedeployRemote
+].each { it.dependsOn assemble }

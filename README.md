@@ -80,11 +80,11 @@ systemProp.https.proxyPort=8080
 ```
 
 ``cargoRunLocal`` の場合は、 ``Ctrl+c`` で停止。
-``cargoStartLocal`` の場合は ``cargoStopLocal`` タスクで停止。
+``cargoStartLocal`` の場合は ``cargoStopLocal`` タスクで停止。ただし、起動後に、 ``clean`` を実行すると停止できなくなるので、注意（この場合、プロセスkillが必要）。
 
 ホットデプロイは不可なので、アプリを更新したら、再起動が必要。
 
-### リモート（ホットデプロイ可）
+### リモート
 
 事前にコンテナ(Wildfly)を起動させておいて、
 
@@ -92,10 +92,14 @@ systemProp.https.proxyPort=8080
 ./gradlew cargoDeployRemote
 ```
 
+でデプロイできる。また、
+
 ```
 ./gradlew cargoRedeployRemote
 ```
 
+でホットデプロイ。
+
 ## 動作確認
 
-http://localhost:8080/javaee7-sandbox/api/hello/world にアクセスして "Hello, world!" と表示されればOK。URL の world の部分はパスパラメータなので、別の文字列にすれば表示される文字列も変化する。
+http://localhost:8080/javaee7-scaffold/api/examples/hello/world にアクセスして "Hello, world!" と表示されればOK。URL の world の部分はパスパラメータなので、別の文字列にすれば表示される文字列も変化する。
