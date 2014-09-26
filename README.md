@@ -16,6 +16,17 @@ javaee7-sandbox
 - ``JAVA_HOME``
 - ``JBOSS_HOME``
 
+## Proxy環境
+
+``gradle.properties`` をこのディレクトリかユーザホームディレクトリに置いておく。
+
+```
+systemProp.http.proxyHost=yourproxy
+systemProp.http.proxyPort=8080
+systemProp.https.proxyHost=yourproxy
+systemProp.https.proxyPort=8080
+```
+
 ### 管理用ユーザの作成
 
 ```
