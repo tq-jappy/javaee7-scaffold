@@ -8,11 +8,25 @@ version = '0.0.1'
 
 def defaultEncoding = 'UTF-8'
 def jdkVersion = '1.8'
+def wildflyVersion = '8.1.0.Final'
+def cargoVersion = '1.4.10'
 
 repositories { 
     mavenCentral()
     maven { url "https://repository.jboss.org/nexus/content/groups/public/" }
 } 
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.5.1'
+    }
+}
+
+apply plugin: 'cargo'
 
 dependencies {
     providedCompile 'org.jboss.spec:jboss-javaee-all-7.0:1.0.1.Final'
@@ -22,9 +36,32 @@ dependencies {
     testCompile 'org.hamcrest:hamcrest-library:1.1'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
     testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.5.Final'
-    testCompile 'org.wildfly:wildfly-arquillian-container-managed:8.1.0.Final'
+    testCompile "org.wildfly:wildfly-arquillian-container-managed:${wildflyVersion}"
+	
+	cargo "org.wildfly:wildfly-controller:${wildflyVersion}"
+	cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
+    cargo "org.codehaus.cargo:cargo-ant:${cargoVersion}"
 
     // all*.exclude module: 'jsr250-api'
 }
 
 [compileJava, compileTestJava]*.options*.encoding = defaultEncoding
+
+cargo {
+    containerId = 'wildfly8x'
+    // port = 8080
+
+    deployable {
+        file = file('build/libs/javaee7-sandbox-0.0.1.war')
+        // context = 'app'
+    }
+
+    local {
+        homeDir = file('/path/to/wildfly')
+        containerProperties {
+            property 'cargo.jboss.configuration', 'standalone-full'
+        }
+    }
+}
+
+cargoRunLocal.dependsOn assemble
