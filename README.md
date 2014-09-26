@@ -15,8 +15,12 @@ javaee7-sandbox
 
 ```
 # cd {wildfly_home}
-# ./add-user -u admin -p password -sc {wildfly_home}/standalone/configuration
+# ./add-user -u {username} -p {password} -sc {wildfly_home}/standalone/configuration
 ```
+
+後述のデプロイタスクにおいて、リモートコンテナにデプロイするためにはユーザ名とパスワードが必須なので、この準備はMUST。
+
+それ以外の場合は、任意（ただし、Wildfly を使う上で管理コンソールは便利なので、登録しておいた方が良い）
 
 ## 注意点
 
