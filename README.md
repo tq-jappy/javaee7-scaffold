@@ -1,4 +1,4 @@
-javaee7-sandbox
+javaee7-scaffold
 ===============
 
 小さく始められるJava EE 7のScaffold。
@@ -11,14 +11,27 @@ javaee7-sandbox
 
 ## 準備
 
-### 環境変数
+### Wildflyのインストール
+
+パッケージ ( http://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.tar.gz )をダウンロードして展開する。
+
+### 環境変数の設定
+
+最低限以下をセットしておく。
 
 - ``JAVA_HOME``
 - ``JBOSS_HOME``
 
-## Proxy環境
+### このリポジトリをClone
 
-``gradle.properties`` をこのディレクトリかユーザホームディレクトリに置いておく。
+
+### Eclipseへのプロジェクトのインポート
+
+[File] - [Import] - [Gradle Project]
+
+### ※ Proxy環境の場合の設定
+
+``gradle.properties`` をこのディレクトリかユーザホームディレクトリに置いておき、以下のように記述（値は環境に合わせる）。
 
 ```
 systemProp.http.proxyHost=yourproxy
@@ -31,21 +44,23 @@ systemProp.https.proxyPort=8080
 
 ```
 # cd {wildfly_home}
-# ./add-user -u {username} -p {password} -sc {wildfly_home}/standalone/configuration
+# ./add-user.sh -u {username} -p {password} -sc {wildfly_home}/standalone/configuration
 ```
 
 後述のデプロイタスクにおいて、リモートコンテナにデプロイするためにはユーザ名とパスワードが必須なので、この準備はMUST。
 
 それ以外の場合は、任意（ただし、Wildfly を使う上で管理コンソールは便利なので、登録しておいた方が良い）
 
-## 注意点
-
-Full ProfileでないとJMS等が使えないので、設定は ``standalone.xml`` ではなく、 ``standalone-full.xml`` の方を使う(build.gradle, arquillian.xml 等)
-
 ## ビルド
 
 ```
 ./gradlew war
+```
+
+## テスト
+
+```
+./gradlew test
 ```
 
 ## デプロイ
