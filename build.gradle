@@ -22,7 +22,7 @@ dependencies {
     testCompile 'org.hamcrest:hamcrest-library:1.1'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
     testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.5.Final'
-	testCompile 'org.wildfly:wildfly-arquillian-container-managed:8.1.0.Final'
+    testCompile 'org.wildfly:wildfly-arquillian-container-managed:8.1.0.Final'
 
     // all*.exclude module: 'jsr250-api'
 }
