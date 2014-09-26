@@ -37,9 +37,9 @@ dependencies {
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
     testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.5.Final'
     testCompile "org.wildfly:wildfly-arquillian-container-managed:${wildflyVersion}"
-	
-	cargo "org.wildfly:wildfly-controller:${wildflyVersion}"
-	cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
+
+    cargo "org.wildfly:wildfly-controller:${wildflyVersion}"
+    cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
     cargo "org.codehaus.cargo:cargo-ant:${cargoVersion}"
 
     // all*.exclude module: 'jsr250-api'
