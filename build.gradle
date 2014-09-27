@@ -26,19 +26,14 @@ apply plugin: 'cargo'
 
 dependencies {
     providedCompile 'org.jboss.spec:jboss-javaee-all-7.0:1.0.1.Final'
-    providedCompile 'org.projectlombok:lombok:1.14.6'
     testCompile 'org.codehaus.groovy:groovy-all:2.3.2'
     testCompile 'junit:junit:4.11'
-    testCompile 'org.hamcrest:hamcrest-library:1.1'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
-    testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.5.Final'
     testCompile "org.wildfly:wildfly-arquillian-container-managed:${wildflyVersion}"
 
     cargo "org.wildfly:wildfly-controller:${wildflyVersion}"
     cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
     cargo "org.codehaus.cargo:cargo-ant:${cargoVersion}"
-
-    // all*.exclude module: 'jsr250-api'
 }
 
 [compileJava, compileTestJava]*.options*.encoding = defaultEncoding
@@ -48,7 +43,7 @@ cargo {
     // port = 8080
 
     deployable {
-        file = file('build/libs/javaee7-scaffold-0.0.1.war')
+        file = file("build/libs/javaee7-scaffold-${version}.war")
         context = 'javaee7-scaffold'
     }
 
