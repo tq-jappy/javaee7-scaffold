@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<body>
+    <ui:composition template="./WEB-INF/template.xhtml">
+        <ui:define name="content">
+            <h1>テストページ</h1>
+
+            <div>
+                <p>#{indexPage.message}</p>
+                <form jsf:id="form">
+                    <p>
+                        <input type="submit" value="Bye"
+                            jsf:action="#{indexPage.sayBye()}" /> <input
+                            type="submit" value="WebSocket"
+                            jsf:action="#{indexPage.gotoWebSocketPage()}" />
+                    </p>
+                </form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>
