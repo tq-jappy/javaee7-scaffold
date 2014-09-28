@@ -1,4 +1,5 @@
-create sequence "todo_id_seq";
+create sequence todo_id_seq start with 1;
+
 create table todo (
   id serial,
   title varchar(64),

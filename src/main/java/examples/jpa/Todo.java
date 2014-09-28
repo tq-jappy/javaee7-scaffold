@@ -1,6 +1,6 @@
 package examples.jpa;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,20 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Builder;
 
 /**
+ * ToDoエンティティ
  * 
  * @author t_endo
  */
 @Entity
-@Builder
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Todo {
 
     @Id
@@ -34,5 +29,5 @@ public class Todo {
     private boolean finished;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime createdAt;
+    private Date createdAt;
 }
