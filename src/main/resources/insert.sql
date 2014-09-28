@@ -1,0 +1,1 @@
+insert into todo (id, title, finished) values (0, 'ToDo001', false);

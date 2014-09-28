@@ -23,6 +23,8 @@
     xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
     <!-- The datasource is bound into JNDI at this location. We reference 
         this in META-INF/persistence.xml -->
+        
+    <!-- 
     <datasource jndi-name="java:jboss/datasources/javaee7-sandboxDS"
         pool-name="javaee7-sandbox" enabled="true"
         use-java-context="true">
@@ -33,5 +35,6 @@
             <password>sa</password>
         </security>
     </datasource>
+    -->
 </datasources>
  
