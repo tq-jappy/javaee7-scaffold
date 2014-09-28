@@ -1,4 +1,4 @@
-package examples;
+package examples.jaxrs;
 
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;

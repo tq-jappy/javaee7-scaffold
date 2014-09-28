@@ -1,4 +1,4 @@
-package examples;
+package examples.jaxrs;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -8,5 +8,5 @@ import javax.ws.rs.core.Application;
  * @author t_endo
  */
 @ApplicationPath("/api")
-public class RestActivator extends Application {
+public class JaxrsActivator extends Application {
 }

@@ -102,4 +102,5 @@ systemProp.https.proxyPort=8080
 
 ## 動作確認
 
-http://localhost:8080/javaee7-scaffold/api/examples/hello/world にアクセスして "Hello, world!" と表示されればOK。URL の world の部分はパスパラメータなので、別の文字列にすれば表示される文字列も変化する。
+- JSF: http://localhost:8080/javaee7-scaffold/
+- JAX-RS: http://localhost:8080/javaee7-scaffold/api/examples/hello/{some string}
