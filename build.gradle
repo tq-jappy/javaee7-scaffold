@@ -26,6 +26,7 @@ apply plugin: 'cargo'
 
 dependencies {
     providedCompile 'org.jboss.spec:jboss-javaee-all-7.0:1.0.1.Final'
+    providedCompile 'org.projectlombok:lombok:1.14.6'
     testCompile 'org.codehaus.groovy:groovy-all:2.3.2'
     testCompile 'junit:junit:4.11'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'

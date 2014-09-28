@@ -4,17 +4,21 @@ import java.io.Serializable;
 import java.util.stream.IntStream;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import lombok.Getter;
 import examples.ejb.HelloEjb;
 
 /**
  * 
  * @author t_endo
  */
-@Named("indexPage")
+@Named("indexBean")
 @ViewScoped
 public class IndexBean implements Serializable {
 
@@ -23,13 +27,21 @@ public class IndexBean implements Serializable {
     @Inject
     private HelloEjb hello;
 
+    @EJB
+    private HelloEjb hello2;
+
+    @Getter
     private String message;
+
+    @Getter
+    private String message2;
 
     private int count;
 
     @PostConstruct
     public void load() {
-        this.message = hello.greet("JSF");
+        this.message = hello.greet("JSF1");
+        this.message2 = hello2.greet("JSF2");
     }
 
     public String sayBye() {
@@ -44,10 +56,11 @@ public class IndexBean implements Serializable {
 
     public String gotoWebSocketPage() {
         System.out.println("next -> websocket.xhtml");
-        return "websocket.xhtml";
-    }
 
-    public String getMessage() {
-        return message;
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext()
+                .getFlash();
+        flash.put("message", message);
+
+        return "websocket?faces-redirect=true";
     }
 }

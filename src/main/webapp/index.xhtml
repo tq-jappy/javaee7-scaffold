@@ -10,13 +10,14 @@
             <h1>テストページ</h1>
 
             <div>
-                <p>#{indexPage.message}</p>
+                <p>#{indexBean.message}</p>
+                <p>#{indexBean.message2}</p>
                 <form jsf:id="form">
                     <p>
                         <input type="submit" value="Bye"
-                            jsf:action="#{indexPage.sayBye()}" /> <input
+                            jsf:action="#{indexBean.sayBye()}" /> <input
                             type="submit" value="WebSocket"
-                            jsf:action="#{indexPage.gotoWebSocketPage()}" />
+                            jsf:action="#{indexBean.gotoWebSocketPage()}" />
                     </p>
                 </form>
             </div>
