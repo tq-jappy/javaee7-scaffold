@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<body>
+    <ui:composition template="./WEB-INF/template.xhtml">
+        <ui:define name="content">
+            <h1>ToDo</h1>
+
+            <h2>新規Todo</h2>
+
+            <form jsf:id="form">
+                <p>
+                    <input type="text"
+                        jsf:value="#{todoBean.todo.title}" /> <input
+                        type="submit" value="Add"
+                        jsf:action="#{todoBean.addTodo()}" />
+                </p>
+            </form>
+
+            <h2>Todo一覧</h2>
+
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>タイトル</th>
+                    <th>作成日時</th>
+                </tr>
+                <tr jsfc="ui:repeat" value="#{todoBean.todos}"
+                    var="todo">
+                    <td>#{todo.id}</td>
+                    <td>#{todo.title}</td>
+                    <td>#{todo.createdAt}</td>
+                </tr>
+            </table>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>
