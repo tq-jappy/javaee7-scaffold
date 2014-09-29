@@ -3,8 +3,8 @@ package examples.jpa;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
@@ -15,7 +15,7 @@ import javax.persistence.Query;
 @Stateless
 public class TodoDao {
 
-    @PersistenceContext(unitName = "primary")
+    @Inject
     private EntityManager em;
 
     @SuppressWarnings("unchecked")
