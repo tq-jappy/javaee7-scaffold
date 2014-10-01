@@ -16,7 +16,7 @@ public class Sender {
     @Inject
     private JMSContext context;
 
-    @Resource(lookup = JMSService.QUEUE)
+    @Resource(lookup = JMSResources.QUEUE)
     private Queue queue;
 
     public void sendMessage(String message) {
