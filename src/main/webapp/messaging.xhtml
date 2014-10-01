@@ -10,6 +10,8 @@
         <ui:define name="content">
             <h1>テストページ</h1>
 
+            <h2>同期</h2>
+
             <form jsf:id="form">
                 <p>
                     <input type="text"
@@ -26,6 +28,18 @@
                     value="#{messagingBean.receivedMessages}" var="msg">
                     #{msg}</li>
             </ul>
+
+            <h2>MDB</h2>
+
+            <form jsf:id="form2">
+                <p>
+                    <input type="text" jsf:value="#{messagingBean.type}" />
+                    <input type="text" jsf:value="#{messagingBean.num1}" />
+                    <input type="text" jsf:value="#{messagingBean.num2}" />
+                    <input type="submit" value="Send"
+                        jsf:action="#{messagingBean.send2()}" />
+                </p>
+            </form>
         </ui:define>
     </ui:composition>
 </body>

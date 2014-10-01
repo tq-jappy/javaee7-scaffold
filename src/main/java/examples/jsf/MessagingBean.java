@@ -35,12 +35,29 @@ public class MessagingBean implements Serializable {
     @Getter
     private String message;
 
+    @Setter
+    @Getter
+    private int type;
+
+    @Setter
+    @Getter
+    private int num1;
+
+    @Setter
+    @Getter
+    private int num2;
+
     @Getter
     private List<String> receivedMessages = new ArrayList<>();
 
     public void send() throws IOException {
         sender.sendMessage(message);
         this.message = "";
+    }
+
+    public void send2() throws IOException {
+        sender.sendMessage(type, num1, num2);
+        type = num1 = num2 = 0;
     }
 
     public void receive() {

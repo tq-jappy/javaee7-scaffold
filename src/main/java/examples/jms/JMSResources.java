@@ -1,14 +1,22 @@
 package examples.jms;
 
 import javax.jms.JMSDestinationDefinition;
+import javax.jms.JMSDestinationDefinitions;
 
 /**
  * 
  * @author t_endo
  */
-@JMSDestinationDefinition(name = JMSResources.QUEUE,
-        destinationName = "HelloQueue", interfaceName = "javax.jms.Queue")
+@JMSDestinationDefinitions({
+        @JMSDestinationDefinition(name = JMSResources.QUEUE,
+                destinationName = "HogeQueue",
+                interfaceName = "javax.jms.Queue"),
+        @JMSDestinationDefinition(name = JMSResources.QUEUE2,
+                destinationName = "FugaQueue",
+                interfaceName = "javax.jms.Queue") })
 public class JMSResources {
 
-    public static final String QUEUE = "java:/queue/HelloQueue";
+    public static final String QUEUE = "java:/queue/HogeQueue";
+
+    public static final String QUEUE2 = "java:/queue/FugaQueue";
 }
