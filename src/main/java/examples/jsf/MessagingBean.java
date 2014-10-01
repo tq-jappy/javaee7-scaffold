@@ -37,15 +37,15 @@ public class MessagingBean implements Serializable {
 
     @Setter
     @Getter
-    private int type;
+    private String type;
 
     @Setter
     @Getter
-    private int num1;
+    private int num;
 
     @Setter
     @Getter
-    private int num2;
+    private String str;
 
     @Getter
     private List<String> receivedMessages = new ArrayList<>();
@@ -55,13 +55,12 @@ public class MessagingBean implements Serializable {
         this.message = "";
     }
 
-    public void send2() throws IOException {
-        sender.sendMessage(type, num1, num2);
-        type = num1 = num2 = 0;
+    public void sendToMDB() throws IOException {
+        sender.sendMessageToMDB(type, num, str);
     }
 
     public void receive() {
-        String receivedMessage = receiver.startReceiver();
+        String receivedMessage = receiver.receiveMessageSync();
         receivedMessages.add(receivedMessage);
     }
 }

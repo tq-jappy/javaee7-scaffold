@@ -1,16 +1,13 @@
 package examples.jms;
 
 import javax.ejb.ActivationConfigProperty;
-import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 
-import examples.ejb.CalcEjb;
-
 /**
- * メッセージの TYPE プロパティが 1 の時用のMDB
+ * メッセージの TYPE プロパティが 'A' の時のメッセージを処理するMDB
  * 
  * @author t_endo
  */
@@ -20,24 +17,17 @@ import examples.ejb.CalcEjb;
         @ActivationConfigProperty(propertyName = "destinationType",
                 propertyValue = "javax.jms.Queue"),
         @ActivationConfigProperty(propertyName = "messageSelector",
-                propertyValue = "TYPE = 1") })
-public class ExampleMDB implements MessageListener {
-
-    @EJB
-    private CalcEjb calc;
+                propertyValue = "TYPE = 'A'") })
+public class ExampleMessageListener1 implements MessageListener {
 
     @Override
     public void onMessage(Message message) {
         try {
-            CalcMessage msg = message.getBody(CalcMessage.class);
+            SimpleMessage body = message.getBody(SimpleMessage.class);
 
-            int result = calc.add(msg.getNum1(), msg.getNum2());
-            System.out.println("received message from MDB1");
-            System.out.println("calc(" + msg.getNum1() + ", " + msg.getNum2()
-                    + ") = " + result);
+            System.out.println("received message from MDB1: " + body);
         } catch (JMSException e) {
             e.printStackTrace();
         }
     }
-
 }

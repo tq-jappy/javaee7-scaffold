@@ -15,10 +15,10 @@
             <form jsf:id="form">
                 <p>
                     <input type="text"
-                        jsf:value="#{messagingBean.message}" />
-                    <input type="submit" value="Send"
-                        jsf:action="#{messagingBean.send()}" />
-                    <input type="submit" value="Receive"
+                        jsf:value="#{messagingBean.message}" /> <input
+                        type="submit" value="Send"
+                        jsf:action="#{messagingBean.send()}" /> <input
+                        type="submit" value="Receive"
                         jsf:action="#{messagingBean.receive()}" />
                 </p>
             </form>
@@ -34,10 +34,10 @@
             <form jsf:id="form2">
                 <p>
                     <input type="text" jsf:value="#{messagingBean.type}" />
-                    <input type="text" jsf:value="#{messagingBean.num1}" />
-                    <input type="text" jsf:value="#{messagingBean.num2}" />
+                    <input type="text" jsf:value="#{messagingBean.num}" />
+                    <input type="text" jsf:value="#{messagingBean.str}" />
                     <input type="submit" value="Send"
-                        jsf:action="#{messagingBean.send2()}" />
+                        jsf:action="#{messagingBean.sendToMDB()}" />
                 </p>
             </form>
         </ui:define>

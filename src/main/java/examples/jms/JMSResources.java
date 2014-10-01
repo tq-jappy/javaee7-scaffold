@@ -8,7 +8,7 @@ import javax.jms.JMSDestinationDefinitions;
  * @author t_endo
  */
 @JMSDestinationDefinitions({
-        @JMSDestinationDefinition(name = JMSResources.QUEUE,
+        @JMSDestinationDefinition(name = JMSResources.QUEUE1,
                 destinationName = "HogeQueue",
                 interfaceName = "javax.jms.Queue"),
         @JMSDestinationDefinition(name = JMSResources.QUEUE2,
@@ -16,7 +16,7 @@ import javax.jms.JMSDestinationDefinitions;
                 interfaceName = "javax.jms.Queue") })
 public class JMSResources {
 
-    public static final String QUEUE = "java:/queue/HogeQueue";
+    public static final String QUEUE1 = "java:/queue/HogeQueue";
 
     public static final String QUEUE2 = "java:/queue/FugaQueue";
 }

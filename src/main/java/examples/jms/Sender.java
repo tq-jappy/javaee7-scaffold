@@ -18,32 +18,41 @@ public class Sender {
     @Inject
     private JMSContext context;
 
-    @Resource(lookup = JMSResources.QUEUE)
-    private Queue queue;
+    @Resource(lookup = JMSResources.QUEUE1)
+    private Queue queueForConsumer;
 
     @Resource(lookup = JMSResources.QUEUE2)
-    private Queue queue2;
+    private Queue queueForMDB;
 
     /**
+     * Consumer 宛にメッセージを送信する。
      * 
      * @param message
+     *            送信メッセージ
      */
     public void sendMessage(String message) {
-        context.createProducer().send(queue, message);
+        context.createProducer().send(queueForConsumer, message);
     }
 
     /**
+     * MDB 宛にメッセージを送信する。
      * 
+     * @param type
+     *            送信タイプ。
+     * @param num
+     *            メッセージに含める数値
+     * @param str
+     *            メッセージに含める文字列
      */
-    public void sendMessage(int type, int num1, int num2) {
-        CalcMessage calcMsg = new CalcMessage();
-        calcMsg.setNum1(num1);
-        calcMsg.setNum2(num2);
+    public void sendMessageToMDB(String type, int num, String str) {
+        SimpleMessage message = new SimpleMessage();
+        message.setANumber(num);
+        message.setAString(str);
 
-        ObjectMessage msg = context.createObjectMessage(calcMsg);
+        ObjectMessage msg = context.createObjectMessage(message);
         try {
-            msg.setIntProperty("TYPE", type);
-            context.createProducer().send(queue2, msg);
+            msg.setStringProperty("TYPE", type);
+            context.createProducer().send(queueForMDB, msg);
         } catch (JMSException e) {
             e.printStackTrace();
         }
