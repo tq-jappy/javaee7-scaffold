@@ -16,7 +16,7 @@ public class Receiver {
     @Inject
     private JMSContext context;
 
-    @Resource(mappedName = JMSService.QUEUE)
+    @Resource(lookup = JMSService.QUEUE)
     private Queue queue;
 
     public String startReceiver() {

@@ -3,7 +3,6 @@ package examples.jms;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.jms.DeliveryMode;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
 
@@ -14,15 +13,13 @@ import javax.jms.Queue;
 @Stateless
 public class Sender {
 
-    @Resource(mappedName = JMSService.QUEUE)
-    private Queue queue;
-
     @Inject
     private JMSContext context;
 
+    @Resource(lookup = JMSService.QUEUE)
+    private Queue queue;
+
     public void sendMessage(String message) {
-        context.createProducer().setPriority(2).setTimeToLive(1000)
-                .setDeliveryMode(DeliveryMode.NON_PERSISTENT)
-                .send(queue, message);
+        context.createProducer().send(queue, message);
     }
 }
