@@ -9,6 +9,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import lombok.Getter;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import examples.jpa.Todo;
 import examples.jpa.TodoService;
 
@@ -16,11 +20,14 @@ import examples.jpa.TodoService;
  * 
  * @author t_endo
  */
-@Named("todoBean")
+@Named
 @ViewScoped
 public class TodoBean implements Serializable {
 
     private static final long serialVersionUID = -2572621774596100922L;
+
+    private static final Logger logger = LoggerFactory
+            .getLogger(TodoBean.class);
 
     @Inject
     private TodoService todoService;
@@ -46,11 +53,17 @@ public class TodoBean implements Serializable {
     }
 
     public void finish(Todo todo) {
+        logger.debug("finish todo {}", todo);
         todo.setFinished(true);
         todoService.update(todo);
+
+        todos = todoService.findAll();
     }
 
     public void delete(Todo todo) {
-        // TODO: 未実装
+        logger.debug("delete todo {}", todo);
+        todoService.delete(todo);
+
+        todos = todoService.findAll();
     }
 }

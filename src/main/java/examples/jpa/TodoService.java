@@ -43,7 +43,7 @@ public class TodoService {
     }
 
     /**
-     * ToDOの内容を更新する。
+     * ToDoの内容を更新する。
      * 
      * @param todo
      *            更新対象
@@ -52,5 +52,15 @@ public class TodoService {
     public Todo update(Todo todo) {
         this.todoDao.edit(todo);
         return todo;
+    }
+
+    /**
+     * ToDoを削除する。
+     * 
+     * @param todo
+     *            削除対象
+     */
+    public void delete(Todo todo) {
+        this.todoDao.remove(todo);
     }
 }

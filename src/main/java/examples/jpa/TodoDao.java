@@ -35,8 +35,7 @@ public class TodoDao {
         return todo;
     }
 
-    public Todo remove(Todo todo) {
+    public void remove(Todo todo) {
         em.remove(todo);
-        return todo;
     }
 }
