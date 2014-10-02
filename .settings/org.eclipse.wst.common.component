@@ -6,7 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <property name="context-root" value="javaee7-sandbox"/>
         <property name="java-output-path" value="/javaee7-sandbox/target/classes"/>
+        <property name="context-root" value="javaee7-scaffold"/>
     </wb-module>
 </project-modules>
