@@ -27,6 +27,8 @@ apply plugin: 'cargo'
 dependencies {
     providedCompile 'org.jboss.spec:jboss-javaee-all-7.0:1.0.1.Final'
     providedCompile 'org.projectlombok:lombok:1.14.6'
+    providedCompile 'org.picketlink:picketlink-api:2.5.2.Final'
+    providedCompile 'org.picketlink:picketlink-impl:2.5.2.Final'
     providedCompile 'org.slf4j:slf4j-api:1.7.2'
     testCompile 'org.codehaus.groovy:groovy-all:2.3.2'
     testCompile 'junit:junit:4.11'

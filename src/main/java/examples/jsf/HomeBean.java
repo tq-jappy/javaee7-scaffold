@@ -20,7 +20,7 @@ import examples.ejb.HelloEjb;
  */
 @Named
 @ViewScoped
-public class IndexBean implements Serializable {
+public class HomeBean implements Serializable {
 
     private static final long serialVersionUID = 4788702779412422887L;
 

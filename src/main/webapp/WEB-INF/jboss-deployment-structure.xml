@@ -1,7 +1,9 @@
 <jboss-deployment-structure>
 	<deployment>
 		<dependencies>
-			<!-- <module name="" /> -->
+			<module name="org.picketlink.core" meta-inf="import" />
+			<module name="org.picketlink.core.api" meta-inf="import" />
+			<module name="org.picketlink.idm.api" meta-inf="import" />
 		</dependencies>
 	</deployment>
 </jboss-deployment-structure>

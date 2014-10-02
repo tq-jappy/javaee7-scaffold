@@ -10,26 +10,32 @@
         <ui:define name="content">
             <h1>テストページ</h1>
 
-            <ul>
-                <li><h:link outcome="calc" value="Calc" /></li>
-                <li><h:link outcome="todo" value="ToDo" /></li>
-                <li><h:link outcome="file" value="File" /></li>
-                <li><h:link outcome="messaging" value="Messaging" /></li>
-                <li><h:link outcome="view2/hoge" value="View2" /></li>
-                <li><h:link outcome="websocket" value="WebSocket" /></li>
-            </ul>
-
             <div>
-                <p>#{indexBean.message}</p>
-                <p>#{indexBean.message2}</p>
-                <form jsf:id="form">
-                    <p>
-                        <input type="submit" value="Bye"
-                            jsf:action="#{indexBean.sayBye()}" />
-                        <input type="submit" value="WebSocket"
-                            jsf:action="#{indexBean.gotoWebSocketPage()}" />
-                    </p>
-                </form>
+                <ui:fragment rendered="#{not identity.loggedIn}">
+                    <form jsf:id="loginForm">
+                        <p>
+                            User Name:
+                            <input type="text"
+                                jsf:value="#{loginCredentials.userId}" />
+                            <br /> Password:
+                            <input type="password"
+                                jsf:value="#{loginCredentials.password}" />
+                            <br />
+                            <input type="submit" value="Login"
+                                jsf:action="#{authenticator.login()}" />
+                        </p>
+                    </form>
+                </ui:fragment>
+                <ui:fragment rendered="#{identity.loggedIn}">
+                    <h3>Welcome #{identity.account.firstName} !</h3>
+                    <h:form>
+                        <p>
+                            Click here to
+                            <h:commandLink action="#{identity.logout()}">logout</h:commandLink>
+                        </p>
+                    </h:form>
+                </ui:fragment>
+                <h:link outcome="signup" value="SignUp" />
             </div>
         </ui:define>
     </ui:composition>

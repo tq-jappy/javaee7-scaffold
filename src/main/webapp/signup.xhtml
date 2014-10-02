@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<body>
+    <ui:composition template="./WEB-INF/template.xhtml">
+        <ui:define name="content">
+            <h1>ユーザ登録</h1>
+
+            <form jsf:id="registrationForm">
+                <p>
+                    First Name:
+                    <input type="text"
+                        jsf:value="#{authenticator.firstName}" />
+                    <br /> Last Name:
+                    <input type="text"
+                        jsf:value="#{authenticator.lastName}" />
+                    <br /> User Name:
+                    <input type="text"
+                        jsf:value="#{authenticator.loginName}" />
+                    <br /> Password:
+                    <input type="password"
+                        jsf:value="#{authenticator.password}" />
+                    <br />
+                    <input type="submit" value="Register"
+                        jsf:action="#{authenticator.register()}" />
+                </p>
+            </form>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>
