@@ -14,7 +14,7 @@ import lombok.Getter;
  * 
  * @author t_endo
  */
-@Named("webSocketBean")
+@Named
 @ViewScoped
 public class WebSocketBean implements Serializable {
 

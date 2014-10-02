@@ -18,7 +18,7 @@ import examples.ejb.HelloEjb;
  * 
  * @author t_endo
  */
-@Named("indexBean")
+@Named
 @ViewScoped
 public class IndexBean implements Serializable {
 

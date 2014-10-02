@@ -19,7 +19,7 @@ import examples.jms.Sender;
  * 
  * @author t_endo
  */
-@Named("messagingBean")
+@Named
 @ViewScoped
 public class MessagingBean implements Serializable {
 

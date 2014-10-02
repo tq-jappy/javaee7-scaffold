@@ -17,7 +17,7 @@ import examples.ejb.CalcEjb;
  * 
  * @author t_endo
  */
-@Named("calcBean")
+@Named
 @ViewScoped
 public class CalcBean implements Serializable {
 

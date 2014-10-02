@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
  * 
  * @author t_endo
  */
-@Named("fileBean")
+@Named
 @ViewScoped
 public class FileBean implements Serializable {
 
