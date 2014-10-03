@@ -9,6 +9,16 @@ javaee7-scaffold
 - Application Server: Wildfly (8.1.0.Final)
 - 結合テスト: Arquillian (1.1.5.Final)
 
+## 中身（現状）
+
+- プレゼンテーション(CDI,JSF)、ビジネスロジック(EJB)、永続化層(JPA)の3層構造の基本的なアプリケーション
+ - PicketLinkを使ったユーザ認証
+ - 簡単なJSF/CDI（2つの入力された数値を足した結果を表示）
+ - CRUDのサンプル（TODOアプリ）
+ - ファイルダウンロード
+ - JMS2.0を使ったSender, Receiver, MDB
+ - WebSocket
+
 ## 準備
 
 ### Wildflyのインストール
