@@ -17,6 +17,7 @@ javaee7-scaffold
  - CRUDのサンプル（TODOアプリ）
  - ファイルダウンロード
  - JMS2.0を使ったSender, Receiver, MDB
+ - スケジュール処理 by Quartz Scheduler
  - WebSocket
 
 ## 準備
