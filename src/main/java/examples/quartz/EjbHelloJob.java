@@ -1,7 +1,6 @@
 package examples.quartz;
 
 import javax.ejb.EJB;
-import javax.inject.Inject;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;

@@ -20,21 +20,20 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.spi.JobFactory;
 
 @ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
-// default
 @Singleton
 @Startup
 public class SchedulerService {
 
     private Scheduler scheduler;
 
-//    @Inject
-//    private JobFactory jobFactory;
+    @Inject
+    private JobFactory jobFactory;
 
     @PostConstruct
     public void start() throws SchedulerException {
         System.out.println("scheduler start.");
         scheduler = StdSchedulerFactory.getDefaultScheduler();
-//        scheduler.setJobFactory(jobFactory);
+        scheduler.setJobFactory(jobFactory);
 
         scheduler.start();
     }
