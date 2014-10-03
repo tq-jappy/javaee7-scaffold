@@ -16,7 +16,7 @@ import examples.quartz.SchedulerService;
  * @author t_endo
  */
 @Named
-//@ViewScoped
+@ViewScoped
 public class QuartzBean implements Serializable {
 
     private static final long serialVersionUID = 8923363557115798944L;
