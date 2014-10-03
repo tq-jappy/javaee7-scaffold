@@ -12,6 +12,7 @@ import javax.inject.Named;
 import javax.ws.rs.core.MediaType;
 
 /**
+ * ファイルアップロード、ダウンロード画面用のマネージドBean
  * 
  * @author t_endo
  */

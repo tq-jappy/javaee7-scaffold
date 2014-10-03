@@ -14,6 +14,7 @@ import lombok.Setter;
 import examples.ejb.CalcEjb;
 
 /**
+ * 数値計算画面用のマネージドBean
  * 
  * @author t_endo
  */

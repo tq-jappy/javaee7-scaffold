@@ -16,6 +16,7 @@ import org.picketlink.idm.credential.Password;
 import org.picketlink.idm.model.basic.User;
 
 /**
+ * 認証を行うためのモデル
  * 
  * @author t_endo
  */

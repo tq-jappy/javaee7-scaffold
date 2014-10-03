@@ -12,6 +12,11 @@ import org.quartz.SchedulerException;
 import org.quartz.spi.JobFactory;
 import org.quartz.spi.TriggerFiredBundle;
 
+/**
+ * CDIで管理されているJobを生成するための{@link JobFactory}実装。
+ * 
+ * @author t_endo
+ */
 @Stateless
 public class CdiJobFactory implements JobFactory {
 

@@ -15,6 +15,7 @@ import lombok.Getter;
 import examples.ejb.HelloEjb;
 
 /**
+ * ホーム画面用のマネージドBean
  * 
  * @author t_endo
  */

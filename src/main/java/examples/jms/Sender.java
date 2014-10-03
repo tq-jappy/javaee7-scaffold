@@ -9,6 +9,7 @@ import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 
 /**
+ * メッセージ送信
  * 
  * @author t_endo
  */

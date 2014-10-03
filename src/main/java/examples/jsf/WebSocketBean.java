@@ -11,6 +11,7 @@ import javax.inject.Named;
 import lombok.Getter;
 
 /**
+ * WebSocket動作確認画面用のマネージドBean
  * 
  * @author t_endo
  */

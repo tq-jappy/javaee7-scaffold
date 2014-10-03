@@ -11,6 +11,7 @@ import examples.ejb.HelloEjb;
 import examples.jms.Sender;
 
 /**
+ * サンプルリソース
  * 
  * @author t_endo
  */

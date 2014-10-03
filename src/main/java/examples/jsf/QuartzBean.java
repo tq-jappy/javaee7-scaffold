@@ -12,6 +12,7 @@ import examples.quartz.EjbHelloJob;
 import examples.quartz.SchedulerService;
 
 /**
+ * Quartz動作確認画面用のマネージドBean
  * 
  * @author t_endo
  */

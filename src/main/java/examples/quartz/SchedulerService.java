@@ -19,6 +19,11 @@ import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.spi.JobFactory;
 
+/**
+ * EEコンテナ上でQuartzスケジューラを動作させるためのサービス。
+ * 
+ * @author t_endo
+ */
 @ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
 @Singleton
 @Startup

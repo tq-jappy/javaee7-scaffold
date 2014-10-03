@@ -8,6 +8,12 @@ import org.quartz.JobExecutionException;
 
 import examples.ejb.HelloEjb;
 
+/**
+ * テスト用のJob。<br />
+ * ジョブ実行時にDIされたEJBの呼び出しができるかの確認用。
+ * 
+ * @author t_endo
+ */
 public class EjbHelloJob implements Job {
 
     @EJB

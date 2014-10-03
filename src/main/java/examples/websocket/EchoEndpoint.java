@@ -8,7 +8,8 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 /**
- * 
+ * echo用のWebSocketエンドポイント。
+ *
  * @author t_endo
  */
 @ServerEndpoint("/echo")

@@ -17,6 +17,7 @@ import examples.jpa.Todo;
 import examples.jpa.TodoService;
 
 /**
+ * ToDo管理画面用のマネージドBean
  * 
  * @author t_endo
  */

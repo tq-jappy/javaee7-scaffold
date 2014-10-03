@@ -15,7 +15,7 @@ import examples.jms.Receiver;
 import examples.jms.Sender;
 
 /**
- * JMSのサンプル用のView
+ * JMSのサンプル用のマネージドBean
  * 
  * @author t_endo
  */
