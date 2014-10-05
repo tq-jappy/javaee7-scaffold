@@ -1,6 +1,9 @@
 package examples.ejb;
 
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
+
+import examples.interceptor.LoggingInterceptor;
 
 /**
  * シンプルなビジネスロジック
@@ -8,6 +11,7 @@ import javax.ejb.Stateless;
  * @author t_endo
  */
 @Stateless
+@Interceptors(LoggingInterceptor.class)
 public class HelloEjb {
 
     /**
