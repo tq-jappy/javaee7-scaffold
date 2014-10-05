@@ -7,9 +7,17 @@
 <body>
     <ui:composition template="./WEB-INF/template.xhtml">
         <ui:define name="content">
-            <h1>ファイルダウンロード</h1>
+            <h1>ファイルアップロード</h1>
+            <form jsf:id="uploadForm" enctype="multipart/form-data">
+                <p>
+                    <input type="file" jsf:value="#{fileBean.file}" />
+                    <input type="submit" value="Upload"
+                        jsf:action="#{fileBean.upload()}" />
+                </p>
+            </form>
 
-            <form jsf:id="form">
+            <h1>ファイルダウンロード</h1>
+            <form jsf:id="downloadForm">
                 <p>
                     <input type="submit" value="Download"
                         jsf:action="#{fileBean.download()}" />
