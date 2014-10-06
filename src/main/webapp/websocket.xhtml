@@ -8,9 +8,11 @@
 <body>
     <ui:composition template="./WEB-INF/template.xhtml">
         <ui:define name="head">
+            <script
+                src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
             <script type="text/javascript">
                  console.log("load.");
-                 var url = "ws://localhost:8080/javaee7-scaffold/echo";
+                 var url = "ws://" + location.host + "/" + location.pathname.split("/")[1] + "/echo";
                  var ws = new WebSocket(url);
 
                  ws.onopen = function(event) {
@@ -18,14 +20,21 @@
                  }
 
                  ws.onmessage = function(event) {
-                     console.log("received: " + event.data);
+                     $("#messages").append("received: " + event.data + "<br />");
                  }
+
+                 $(document).ready(function() {
+                     $("#send").click(function() {
+                         ws.send($("#msg").val());
+                     });
+                 });
             </script>
         </ui:define>
         <ui:define name="content">
             <h1>WebSocket</h1>
-            #{webSocketBean.message}
-            <div></div>
+            <input id="msg" type="text" />
+            <input id="send" type="button" value="Send" />
+            <div id="messages"></div>
         </ui:define>
     </ui:composition>
 </body>
