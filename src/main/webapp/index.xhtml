@@ -26,15 +26,6 @@
                         </p>
                     </form>
                 </ui:fragment>
-                <ui:fragment rendered="#{identity.loggedIn}">
-                    <h3>Welcome #{identity.account.firstName} !</h3>
-                    <h:form>
-                        <p>
-                            Click here to
-                            <h:commandLink action="#{identity.logout()}">logout</h:commandLink>
-                        </p>
-                    </h:form>
-                </ui:fragment>
                 <h:link outcome="signup" value="SignUp" />
             </div>
         </ui:define>
