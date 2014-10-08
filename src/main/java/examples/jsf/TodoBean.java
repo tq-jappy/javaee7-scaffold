@@ -11,7 +11,6 @@ import javax.inject.Named;
 import lombok.Getter;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import examples.jpa.Todo;
 import examples.jpa.TodoService;
@@ -27,8 +26,8 @@ public class TodoBean implements Serializable {
 
     private static final long serialVersionUID = -2572621774596100922L;
 
-    private static final Logger logger = LoggerFactory
-            .getLogger(TodoBean.class);
+    @Inject
+    private Logger logger;
 
     @Inject
     private TodoService todoService;

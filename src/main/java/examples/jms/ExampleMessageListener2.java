@@ -2,9 +2,12 @@ package examples.jms;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+
+import org.slf4j.Logger;
 
 /**
  * メッセージの TYPE プロパティが 'B' の時のメッセージを処理するMDB
@@ -20,12 +23,15 @@ import javax.jms.MessageListener;
                 propertyValue = "TYPE <> 'A'") })
 public class ExampleMessageListener2 implements MessageListener {
 
+    @Inject
+    private Logger logger;
+
     @Override
     public void onMessage(Message message) {
         try {
             SimpleMessage body = message.getBody(SimpleMessage.class);
 
-            System.out.println("received message from MDB2: " + body);
+            logger.info("received message from MDB2: {}", body);
         } catch (JMSException e) {
             e.printStackTrace();
         }

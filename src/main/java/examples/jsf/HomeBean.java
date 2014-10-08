@@ -12,6 +12,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import lombok.Getter;
+
+import org.slf4j.Logger;
+
 import examples.ejb.HelloEjb;
 
 /**
@@ -24,6 +27,9 @@ import examples.ejb.HelloEjb;
 public class HomeBean implements Serializable {
 
     private static final long serialVersionUID = 4788702779412422887L;
+
+    @Inject
+    private Logger logger;
 
     @Inject
     private HelloEjb hello;
@@ -56,7 +62,7 @@ public class HomeBean implements Serializable {
     }
 
     public String gotoWebSocketPage() {
-        System.out.println("next -> websocket.xhtml");
+        logger.debug("next -> websocket.xhtml");
 
         Flash flash = FacesContext.getCurrentInstance().getExternalContext()
                 .getFlash();

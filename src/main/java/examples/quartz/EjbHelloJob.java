@@ -1,10 +1,12 @@
 package examples.quartz;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
 
 import examples.ejb.HelloEjb;
 
@@ -16,6 +18,9 @@ import examples.ejb.HelloEjb;
  */
 public class EjbHelloJob implements Job {
 
+    @Inject
+    private Logger logger;
+
     @EJB
     private HelloEjb hello;
 
@@ -25,6 +30,6 @@ public class EjbHelloJob implements Job {
     @Override
     public void execute(JobExecutionContext context)
             throws JobExecutionException {
-        System.out.println(hello.greet("quartz"));
+        logger.info("quartz hello job invoked: {}", hello.greet("quartz"));
     }
 }

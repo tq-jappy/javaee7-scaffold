@@ -8,6 +8,8 @@ import javax.jms.JMSException;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 
+import org.slf4j.Logger;
+
 /**
  * メッセージ送信
  * 
@@ -15,6 +17,9 @@ import javax.jms.Queue;
  */
 @Stateless
 public class Sender {
+
+    @Inject
+    private Logger logger;
 
     @Inject
     private JMSContext context;
@@ -55,7 +60,7 @@ public class Sender {
             msg.setStringProperty("TYPE", type);
             context.createProducer().send(queueForMDB, msg);
         } catch (JMSException e) {
-            e.printStackTrace();
+            logger.error("Failed to send message to queue", e);
         }
     }
 }

@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 import javax.ws.rs.core.MediaType;
@@ -18,7 +19,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * ファイルアップロード、ダウンロード画面用のマネージドBean
@@ -31,8 +31,8 @@ public class FileBean implements Serializable {
 
     private static final long serialVersionUID = -1861554862101524594L;
 
-    private static final Logger logger = LoggerFactory
-            .getLogger(FileBean.class);
+    @Inject
+    private Logger logger;
 
     @Getter
     @Setter
