@@ -31,6 +31,20 @@
                 style="width: 10em; background-color: red;">#{ajaxBean.a}</div>
             <div jsf:id="bar"
                 style="width: 10em; background-color: blue;">#{ajaxBean.b}</div>
+
+            <h2>select sample</h2>
+            <form jsf:id="ajaxSelectForm">
+                <h:selectOneMenu value="#{ajaxBean.c}"
+                    valueChangeListener="#{ajaxBean.onChange()}"
+                    onchange="submit()">
+                    <f:selectItems value="#{ajaxBean.select1}" />
+                    <f:ajax execute="@this" render="piyo" />
+                </h:selectOneMenu>
+
+                <h:selectOneMenu id="piyo" value="#{ajaxBean.d}">
+                    <f:selectItems value="#{ajaxBean.select2}" />
+                </h:selectOneMenu>
+            </form>
         </ui:define>
     </ui:composition>
 </body>
