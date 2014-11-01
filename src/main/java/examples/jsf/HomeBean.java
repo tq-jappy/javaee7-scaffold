@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.view.ViewScoped;
@@ -49,6 +50,11 @@ public class HomeBean implements Serializable {
     public void load() {
         this.message = hello.greet("JSF1");
         this.message2 = hello2.greet("JSF2");
+
+        logger.debug("load home bean.");
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                "Home", "aaaaa"));
     }
 
     public String sayBye() {
