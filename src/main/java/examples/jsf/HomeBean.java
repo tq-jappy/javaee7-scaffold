@@ -53,8 +53,8 @@ public class HomeBean implements Serializable {
 
         logger.debug("load home bean.");
         FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-                "Home", "aaaaa"));
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                "aaa", "aaa"));
     }
 
     public String sayBye() {
