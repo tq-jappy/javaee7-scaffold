@@ -16,6 +16,7 @@ import lombok.Getter;
 
 import org.slf4j.Logger;
 
+import examples.cdi.RequestParameter;
 import examples.ejb.HelloEjb;
 
 /**
@@ -35,6 +36,10 @@ public class HomeBean implements Serializable {
     @Inject
     private HelloEjb hello;
 
+    @Inject
+    @RequestParameter
+    private Integer hoge;
+
     @EJB
     private HelloEjb hello2;
 
@@ -52,6 +57,7 @@ public class HomeBean implements Serializable {
         this.message2 = hello2.greet("JSF2");
 
         logger.debug("load home bean.");
+        logger.debug("hoge parameter = {}", hoge);
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                 "aaa", "aaa"));
