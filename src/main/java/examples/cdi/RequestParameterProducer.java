@@ -1,6 +1,7 @@
 package examples.cdi;
 
 import java.io.Serializable;
+import java.util.OptionalInt;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
@@ -30,12 +31,12 @@ public class RequestParameterProducer implements Serializable {
 
     @Produces
     @RequestParameter
-    public Integer getRequestParameter(InjectionPoint ip) {
+    public OptionalInt getRequestParameter(InjectionPoint ip) {
         RequestParameter annotation = ip.getAnnotated().getAnnotation(
                 RequestParameter.class);
         if (annotation == null) {
             logger.warn("annotation not given.");
-            return null;
+            return OptionalInt.empty();
         }
 
         String name = annotation.name();
@@ -47,6 +48,7 @@ public class RequestParameterProducer implements Serializable {
                 .getRequestParameterMap().get(name);
 
         logger.debug("produce RequestParameter ({} = {})", name, value);
-        return (value == null) ? null : Integer.valueOf(value);
+        return (value == null) ? OptionalInt.empty() : OptionalInt.of(Integer
+                .valueOf(value));
     }
 }

@@ -1,11 +1,11 @@
 package examples.jsf;
 
 import java.io.Serializable;
+import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.view.ViewScoped;
@@ -38,7 +38,7 @@ public class HomeBean implements Serializable {
 
     @Inject
     @RequestParameter
-    private Integer hoge;
+    private OptionalInt hoge;
 
     @EJB
     private HelloEjb hello2;
@@ -47,6 +47,7 @@ public class HomeBean implements Serializable {
     private String message;
 
     @Getter
+    // Lombok
     private String message2;
 
     private int count;
@@ -56,11 +57,7 @@ public class HomeBean implements Serializable {
         this.message = hello.greet("JSF1");
         this.message2 = hello2.greet("JSF2");
 
-        logger.debug("load home bean.");
-        logger.debug("hoge parameter = {}", hoge);
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                "aaa", "aaa"));
+        logger.debug("hoge = {}, fuga = {}", hoge);
     }
 
     public String sayBye() {
