@@ -38,7 +38,7 @@ public class HomeBean implements Serializable {
 
     @Inject
     @RequestParameter
-    private OptionalInt hoge;
+    private transient OptionalInt hoge;
 
     @EJB
     private HelloEjb hello2;
