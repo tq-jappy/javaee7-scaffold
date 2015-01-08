@@ -4,15 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
-import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import lombok.Getter;
 import lombok.Setter;
+import examples.Progress;
 
 /**
  * Ajaxサンプル画面用のマネージドBean
@@ -44,10 +45,17 @@ public class AjaxBean implements Serializable {
     private String d;
 
     @Getter
+    @Setter
+    private Progress progress;
+
+    @Getter
     private List<SelectItem> select1;
 
     @Getter
     private List<SelectItem> select2;
+
+    @Getter
+    private List<SelectItem> progressSelectItems;
 
     @PostConstruct
     public void init() {
@@ -56,6 +64,11 @@ public class AjaxBean implements Serializable {
         select1.add(new SelectItem("B", "B"));
 
         select2 = new ArrayList<>();
+
+        progress = Progress.WORK_IN_PREGRESS;
+        progressSelectItems = Arrays.stream(Progress.values())
+                .map(p -> new SelectItem(p, p.toString()))
+                .collect(Collectors.toList());
     }
 
     // public void onChange(ValueChangeEvent event) {
