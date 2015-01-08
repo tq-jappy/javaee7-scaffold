@@ -65,7 +65,7 @@ public class AjaxBean implements Serializable {
 
         select2 = new ArrayList<>();
 
-        progress = Progress.WORK_IN_PREGRESS;
+        progress = Progress.WORK_IN_PROGRESS;
         progressSelectItems = Arrays.stream(Progress.values())
                 .map(p -> new SelectItem(p, p.toString()))
                 .collect(Collectors.toList());

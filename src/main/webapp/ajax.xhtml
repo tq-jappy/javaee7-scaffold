@@ -44,7 +44,25 @@
                 <h:selectOneMenu id="piyo" value="#{ajaxBean.d}">
                     <f:selectItems value="#{ajaxBean.select2}" />
                 </h:selectOneMenu>
+
+                <h:selectOneMenu value="#{ajaxBean.progress}">
+                    <f:selectItems
+                        value="#{ajaxBean.progressSelectItems}" />
+                    <f:ajax render="progressMessage" />
+                </h:selectOneMenu>
             </form>
+
+            <div jsf:id="progressMessage">
+                <ul>
+                    <li jsf:rendered="#{ajaxBean.progress == 'NEW'}">progress
+                        is new!</li>
+                    <li
+                        jsf:rendered="#{ajaxBean.progress == 'WORK_IN_PROGRESS'}">progress
+                        is WIP...</li>
+                    <li jsf:rendered="#{ajaxBean.progress == 'DONE'}">progress
+                        is done!!!</li>
+                </ul>
+            </div>
         </ui:define>
     </ui:composition>
 </body>

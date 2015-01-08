@@ -10,7 +10,7 @@ public enum Progress {
 
     NEW(0),
 
-    WORK_IN_PREGRESS(1),
+    WORK_IN_PROGRESS(1),
 
     DONE(2);
 
