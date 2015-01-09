@@ -33,6 +33,29 @@
                 <h:commandButton action="#{validationBean.validate()}"
                     value="Validate" />
             </form>
+
+            <form jsf:id="personFormAjax">
+                <p>
+                    Name:
+                    <input type="text" jsf:id="name2"
+                        jsf:value="#{person.name}">
+                        <f:ajax event="blur" execute="name2"
+                            render="errorName" />
+                    </input>
+                    <h:message for="name2" id="errorName"
+                        errorStyle="color:red;" />
+                </p>
+                <p>
+                    Age:
+                    <input type="text" jsf:id="age2"
+                        jsf:value="#{person.age}">
+                        <f:ajax event="blur" execute="@this"
+                            render="errorAge" />
+                    </input>
+                    <h:message for="age2" id="errorAge"
+                        errorStyle="color:red;" />
+                </p>
+            </form>
         </ui:define>
     </ui:composition>
 </body>
