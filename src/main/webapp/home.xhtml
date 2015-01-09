@@ -2,40 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:jsf="http://xmlns.jcp.org/jsf"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <body>
-    <ui:composition template="./WEB-INF/template.xhtml">
-        <ui:define name="content">
-            <h1>テストページ</h1>
+  <ui:composition template="./WEB-INF/template.xhtml">
+    <ui:define name="content">
+      <h1>テストページ</h1>
 
-            <ul>
-                <li><h:link outcome="calc" value="Calc" /></li>
-                <li><h:link outcome="ajax" value="Ajax" /></li>
-                <li><h:link outcome="validation"
-                        value="Bean Validation" /></li>
-                <li><h:link outcome="todo" value="ToDo" /></li>
-                <li><h:link outcome="file" value="File" /></li>
-                <li><h:link outcome="messaging" value="Messaging" /></li>
-                <li><h:link outcome="quartz" value="Quartz" /></li>
-                <li><h:link outcome="view2/hoge" value="View2" /></li>
-                <li><h:link outcome="websocket" value="WebSocket" /></li>
-            </ul>
+      <ul>
+        <li><h:link outcome="calc" value="Calc" /></li>
+        <li><h:link outcome="ajax" value="Ajax" /></li>
+        <li><h:link outcome="validation" value="Bean Validation" /></li>
+        <li><h:link outcome="todo" value="ToDo" /></li>
+        <li><h:link outcome="file" value="File" /></li>
+        <li><h:link outcome="messaging" value="Messaging" /></li>
+        <li><h:link outcome="quartz" value="Quartz" /></li>
+        <li><h:link outcome="view2/hoge" value="View2" /></li>
+        <li><h:link outcome="websocket" value="WebSocket" /></li>
+      </ul>
 
-            <div>
-                <p>#{homeBean.message}</p>
-                <p>#{homeBean.message2}</p>
-                <form jsf:id="form">
-                    <p>
-                        <input type="submit" value="Bye"
-                            jsf:action="#{homeBean.sayBye()}" />
-                        <input type="submit" value="WebSocket"
-                            jsf:action="#{homeBean.gotoWebSocketPage()}" />
-                    </p>
-                </form>
-            </div>
-        </ui:define>
-    </ui:composition>
+      <div>
+        <p>#{homeBean.message}</p>
+        <p>#{homeBean.message2}</p>
+        <form jsf:id="form">
+          <p>
+            <input type="submit" value="Bye"
+              jsf:action="#{homeBean.sayBye()}" />
+            <input type="submit" value="WebSocket"
+              jsf:action="#{homeBean.gotoWebSocketPage()}" />
+          </p>
+        </form>
+      </div>
+    </ui:define>
+  </ui:composition>
 </body>
 </html>

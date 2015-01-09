@@ -2,33 +2,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:jsf="http://xmlns.jcp.org/jsf"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Java EE 7 Examples</title>
-    <h:outputStylesheet name="./css/default.css" />
-    <link rel="stylesheet" href="resources/css/default.css"
-        type="text/css" />
-    <ui:insert name="head"></ui:insert>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Java EE 7 Examples</title>
+  <h:outputStylesheet name="./css/default.css" />
+  <link rel="stylesheet" href="resources/css/default.css"
+    type="text/css" />
+  <ui:insert name="head"></ui:insert>
 </h:head>
 
 <h:body>
-    <div id="header">
-        <ui:include src="/WEB-INF/header.xhtml" />
-        <ui:insert name="header"></ui:insert>
-    </div>
-    <div id="content">
-        <ui:insert name="content"></ui:insert>
-    </div>
-    <div id="footer">
-        <h:link outcome="/home" value="戻る"
-            rendered="#{view.viewId != '/home.xhtml'}" />
-        <ui:insert name="footer"></ui:insert>
-    </div>
+  <div id="header">
+    <ui:include src="/WEB-INF/header.xhtml" />
+    <ui:insert name="header"></ui:insert>
+  </div>
+  <div id="content">
+    <ui:insert name="content"></ui:insert>
+  </div>
+  <div id="footer">
+    <h:link outcome="/home" value="戻る"
+      rendered="#{view.viewId != '/home.xhtml'}" />
+    <ui:insert name="footer"></ui:insert>
+  </div>
 </h:body>
 </html>
