@@ -34,6 +34,16 @@
           </p>
         </form>
       </div>
+
+      <form jsf:id="errorForm">
+        <ul>
+          <li><h:commandButton
+              action="#{homeBean.throwException()}" value="Exception" /></li>
+          <li><h:commandButton
+              action="#{homeBean.throwIOException()}"
+              value="IOException" /></li>
+        </ul>
+      </form>
     </ui:define>
   </ui:composition>
 </body>

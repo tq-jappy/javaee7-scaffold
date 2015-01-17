@@ -1,5 +1,6 @@
 package examples.jsf;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
@@ -78,5 +79,13 @@ public class HomeBean implements Serializable {
         flash.put("message", message);
 
         return "websocket?faces-redirect=true";
+    }
+
+    public void throwException() throws Exception {
+        throw new Exception("hogehoge");
+    }
+
+    public void throwIOException() throws Exception {
+        throw new IOException("hogehoge");
     }
 }
