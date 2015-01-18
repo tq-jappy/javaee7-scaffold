@@ -1,30 +1,19 @@
 package examples.quartz;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.slf4j.Logger;
-
-import examples.ejb.HelloEjb;
 
 /**
  * テスト用のJob。<br />
- * ジョブ実行時にDIされたEJBの呼び出しができるかの確認用。
+ * ただの呼び出しテスト。
  * 
  * @author t_endo
  */
 @Dependent
-public class EjbHelloJob implements Job {
-
-    @Inject
-    private Logger logger;
-
-    @EJB
-    private HelloEjb hello;
+public class HelloJob implements Job {
 
     /**
      * {@inheritDoc}
@@ -32,6 +21,6 @@ public class EjbHelloJob implements Job {
     @Override
     public void execute(JobExecutionContext context)
             throws JobExecutionException {
-        logger.info("quartz hello job invoked: {}", hello.greet("quartz"));
+        System.out.println("Hello");
     }
 }

@@ -32,6 +32,8 @@ public class CdiJobFactory implements JobFactory {
 
         Instance<? extends Job> instance = jobs.select(jobClass);
 
+        // Job job = CDI.current().select(Job.class).get();
+
         if (instance.isAmbiguous()) {
             throw new IllegalStateException(
                     "Failed to provide job (ambiguous):  " + jobClass);

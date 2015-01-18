@@ -19,14 +19,14 @@
     <!-- Force the use of the Servlet 3.0 protocol with all containers, as it is the most mature -->
     <defaultProtocol type="Servlet 3.0" />
 
-    <container qualifier="arquillian-wildfly8-managed" default="true">
+    <container qualifier="arquillian-wildfly8-remote" default="true">
         <configuration>
             <!-- 環境変数 JBOSS_HOME/JAVA_HOME を設定するか、プロパティ jboss.home/java.home を設定する -->
             <!--
             <property name="jbossHome">/path/to/wildfly</property>
             <property name="javaHome">/path/to/jdk8</property>
-            -->
             <property name="serverConfig">standalone-full.xml</property>
+            -->
         </configuration>
     </container>
 </arquillian>

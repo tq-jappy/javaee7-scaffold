@@ -34,7 +34,8 @@ dependencies {
     testCompile 'org.codehaus.groovy:groovy-all:2.3.2'
     testCompile 'junit:junit:4.11'
     testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.5.Final'
-    testCompile "org.wildfly:wildfly-arquillian-container-managed:${wildflyVersion}"
+    testCompile "org.wildfly:wildfly-arquillian-container-remote:${wildflyVersion}"
+    testCompile 'org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-depchain:2.1.0'
 
     cargo "org.wildfly:wildfly-controller:${wildflyVersion}"
     cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"

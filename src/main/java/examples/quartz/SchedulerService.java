@@ -51,6 +51,10 @@ public class SchedulerService {
         scheduler.scheduleJob(job, trigger);
     }
 
+    public int getNumberOfJobsExecuted() throws SchedulerException {
+        return scheduler.getMetaData().getNumberOfJobsExecuted();
+    }
+
     @PreDestroy
     public void stop() throws SchedulerException {
         System.out.println("scheduler shutdown.");
