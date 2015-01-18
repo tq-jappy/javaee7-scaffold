@@ -5,14 +5,14 @@ javaee7-scaffold
 
 - Java: Java SE 8/Java EE 7
 - IDE: Eclipse (4.4)
-- ビルド: Gradle (2.1)
+- ビルド: Gradle (2.2)
 - Application Server: Wildfly (8.1.0.Final)
-- 結合テスト: Arquillian (1.1.5.Final)
+- 結合テスト: Arquillian (1.1.5.Final) Remote Container
 
 ## 中身（現状）
 
 - プレゼンテーション(CDI,JSF)、ビジネスロジック(EJB)、永続化層(JPA)の3層構造の基本的なアプリケーション
- - PicketLinkを使ったユーザ認証
+ - <s>PicketLinkを使ったユーザ認証</s>
  - 簡単なJSF/CDI（2つの入力された数値を足した結果を表示）
  - CRUDのサンプル（TODOアプリ）
  - ファイルダウンロード
