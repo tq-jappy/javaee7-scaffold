@@ -1,4 +1,5 @@
-<jboss-deployment-structure>
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
 	<deployment>
 		<dependencies>
 			<module name="org.picketlink.core" meta-inf="import" />
