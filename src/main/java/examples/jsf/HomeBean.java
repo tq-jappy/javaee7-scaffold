@@ -14,9 +14,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import org.slf4j.Logger;
 
+import examples.cdi.EventProducer;
 import examples.cdi.RequestParameter;
 import examples.ejb.HelloEjb;
 
@@ -38,6 +40,13 @@ public class HomeBean implements Serializable {
     private HelloEjb hello;
 
     @Inject
+    private EventProducer eventProducer;
+
+    @Getter
+    @Setter
+    private String eventName;
+
+    @Inject
     @RequestParameter
     private transient OptionalInt hoge;
 
@@ -48,7 +57,6 @@ public class HomeBean implements Serializable {
     private String message;
 
     @Getter
-    // Lombok
     private String message2;
 
     private int count;
@@ -87,5 +95,9 @@ public class HomeBean implements Serializable {
 
     public void throwIOException() throws Exception {
         throw new IOException("hogehoge");
+    }
+
+    public void fire() {
+        eventProducer.add(eventName);
     }
 }

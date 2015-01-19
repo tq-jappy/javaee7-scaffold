@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:jsf="http://xmlns.jcp.org/jsf"
   xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
   xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <body>
   <ui:composition template="./WEB-INF/template.xhtml">
@@ -43,6 +44,13 @@
               action="#{homeBean.throwIOException()}"
               value="IOException" /></li>
         </ul>
+      </form>
+
+      <form jsf:id="eventForm">
+        <h:inputText id="eventName" value="#{homeBean.eventName}" />
+        <h:commandButton action="#{homeBean.fire()}" value="Fire">
+          <f:ajax execute="eventName" />
+        </h:commandButton>
       </form>
     </ui:define>
   </ui:composition>
